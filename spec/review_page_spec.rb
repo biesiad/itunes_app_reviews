@@ -1,64 +1,56 @@
 # encoding: UTF-8
 require 'rspec'
+require_relative 'spec_helper'
 require_relative '../lib/app_store_reviews'
 
-describe AppStoreReviews::ReviewPage do
+describe AppStoreReviews::ReviewsPage do
   describe "#reviews" do
-    it "returns reviews list" do
-      review_page = AppStoreReviews::ReviewPage.new("")
-      review_page.reviews.length.should == 10
-    end
-
-    it "returns only valid reviews" do
-      review_page = AppStoreReviews::ReviewPage.new("")
-      review_page.reviews.length.should == 10
-    end
-
-    it "returns empty list for invalid data" do
-      review_page = AppStoreReviews::ReviewPage.new("")
-      review_page.reviews.length.should == 0
-    end
-  end
-
-  describe "#parse" do
-    context "with valid data" do
-      before :each do
-        review_page = AppStoreReviews::ReviewPage.new("")
-        @link = review_page.parse("")
+    describe "with invalid data" do
+      it "returns only valid reviews" do
+        page = AppStoreReviews::ReviewsPage.new(reviews_page_with_errors)
+        page.reviews.length.should == 24
       end
 
-      it "returns object if can parse link" do
-        @link.should_not be_nil
+      it "returns empty list for all invalid data" do
+        page = AppStoreReviews::ReviewsPage.new("")
+        page.reviews.length.should == 0
+      end
+    end
+
+    describe "with valid data" do
+      before :each do
+        page = AppStoreReviews::ReviewsPage.new(reviews_page)
+        @reviews = page.reviews
+        @review = @reviews[0]
+      end
+
+      it "returns reviews list" do
+        @reviews.length.should == 25
       end
 
       it "finds title" do
-        @link[:title].should == ""
+        @review[:title].should == "LOVE IT!!"
       end
 
       it "finds name" do
-        @link[:name].should == ""
+        @review[:name].should == "Genessa Simmons"
       end
 
       it "finds text" do
-        @link[:text].should == ""
+        @review[:text].should == "ADDICTING!!! ❤❤❤"
       end
 
       it "finds rating" do
-        @link[:rating].should == ""
+        @review[:rating].should == "5"
       end
 
       it "finds date" do
-        @link[:date].should == ""
+        @review[:date].should == "Apr 6, 2013"
       end
 
       it "finds version" do
-        @link[:version] == ""
+        @review[:version].should == "1.6.4"
       end
-    end
-
-    it "returns nil if can't parse link" do
-      link = @review_page.parse("")
-      link.should be_nil
     end
   end
 end
