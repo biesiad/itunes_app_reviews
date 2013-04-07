@@ -22,7 +22,7 @@ Create reviews object with selected store ID and application ID.
 
 ```ruby
   app_id = 123456789
-  store_id = 123456
+  store_id = AppStoreReviews::Stores['United States']
 
   reviews = AppStoreReviews::Reviews.new(store_id, app_id)
   reviews.each do |review|
