@@ -1,6 +1,6 @@
 # AppStoreReviews
 
-TODO: Write a gem description
+Download user reviews from iTunes (iOS App Store)
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create reviews object with selected store ID and application ID.
+
+```ruby
+  app_id = 123456789
+  store_id = 123456
+
+  reviews = AppStoreReviews::Reviews.new(store_id, app_id)
+  reviews.each do |review|
+    puts "title: #{review[:title]}"
+    puts "name: #{review[:name]}"
+    puts "text: #{review[:text]}"
+    puts "rating: #{review[:rating]}"
+    puts "date: #{review[:date]}"
+    puts "version: #{review[:version]}"
+    puts
+  end
+```ruby
+
+For logging provide logger to `AppStoreReviews` module and set desired logging level. By default logs go to `/dev/null` with level `ERROR`.
+
+```ruby
+AppStoreReviews.log = Logger.new(STDOUT)
+AppStoreReviews.log.level = Logger::DEBUG
+```ruby
 
 ## Contributing
 
