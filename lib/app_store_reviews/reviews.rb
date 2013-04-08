@@ -16,7 +16,7 @@ module AppStoreReviews
     end
 
     def each
-      AppStoreReviews::log.debug("Loading reviews (store_id: #{store_id}, app_id: #{app_id})")
+      AppStoreReviews::log.debug("Loading reviews (store_id: #{@store_id}, app_id: #{@app_id})")
       page = 0
       while true
         page += 1
@@ -34,7 +34,7 @@ module AppStoreReviews
       url = "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?sortOrdering=4&onlyLatestVersion=false&sortAscending=true&pageNumber=#{(page_number - 1)}&type=Purple+Software&id=#{@app_id}"
       f = open(url, "User-Agent" => "iTunes-iPhone/2.2 (2)", "X-Apple-Store-Front" => "#{@store_id}-1", :allow_safe_redirections => true)
       page_text = f.read
-      AppStoreReviews.log.debug("Loading page #{page_number} (store_id: #{store_id}, app_id: #{app_id})")
+      AppStoreReviews.log.debug("Loading page #{page_number} (store_id: #{@store_id}, app_id: #{@app_id})")
       AppStoreReviews.log.debug(page_text)
       AppStoreReviews::ReviewsPage.new(page_text).reviews
     end
