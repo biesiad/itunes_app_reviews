@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["gbiesiadecki@gmail.com"]
   gem.description   = %q{Scrapes iTunes for app reviews}
   gem.summary       = %q{iTunes App Reviews}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/biesiad/itunes_app_reviews"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

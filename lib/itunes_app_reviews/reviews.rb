@@ -7,6 +7,8 @@ require 'csv'
 require 'date'
 
 module ITunesAppReviews
+  include Enumerable
+
   class Reviews
     attr_writer :start_date
 
@@ -29,6 +31,8 @@ module ITunesAppReviews
         end
       end
     end
+
+    private
 
     def reviews_page(page_number)
       url = "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?sortOrdering=4&onlyLatestVersion=false&sortAscending=true&pageNumber=#{(page_number - 1)}&type=Purple+Software&id=#{@app_id}"
