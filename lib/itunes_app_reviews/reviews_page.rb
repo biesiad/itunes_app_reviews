@@ -24,7 +24,6 @@ module ITunesAppReviews
 
     def parse(link)
       ITunesAppReviews.log.debug("Parsing link")
-      ITunesAppReviews.log.debug(link)
 
       node = link.css('TextView > SetFontStyle')
       info = node[2].content.split(" - ")
@@ -52,7 +51,8 @@ module ITunesAppReviews
       }
 
     rescue StandardError => e
-      ITunesAppReviews.log.error("Error while parsing")
+      ITunesAppReviews.log.error("Error while parsing link")
+      ITunesAppReviews.log.error(link)
       ITunesAppReviews.log.error(e)
       nil
     end
