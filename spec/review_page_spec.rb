@@ -1,25 +1,25 @@
 # encoding: UTF-8
 require 'rspec'
 require_relative 'spec_helper'
-require_relative '../lib/app_store_reviews'
+require_relative '../lib/itunes_app_reviews'
 
-describe AppStoreReviews::ReviewsPage do
+describe ITunesAppReviews::ReviewsPage do
   describe "#reviews" do
     describe "with invalid data" do
       it "returns only valid reviews" do
-        page = AppStoreReviews::ReviewsPage.new(reviews_page_with_errors)
+        page = ITunesAppReviews::ReviewsPage.new(reviews_page_with_errors)
         page.reviews.length.should == 24
       end
 
       it "returns empty list for all invalid data" do
-        page = AppStoreReviews::ReviewsPage.new("")
+        page = ITunesAppReviews::ReviewsPage.new("")
         page.reviews.length.should == 0
       end
     end
 
     describe "with valid data" do
       before :each do
-        page = AppStoreReviews::ReviewsPage.new(reviews_page)
+        page = ITunesAppReviews::ReviewsPage.new(reviews_page)
         @reviews = page.reviews
         @review = @reviews[0]
       end

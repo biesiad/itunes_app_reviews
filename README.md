@@ -1,4 +1,4 @@
-# AppStoreReviews
+# ITunesAppReviews
 
 Download user reviews from iTunes (iOS App Store)
 
@@ -22,9 +22,9 @@ Create reviews object with selected store ID and application ID.
 
 ```ruby
   app_id = 123456789
-  store_id = AppStoreReviews::Stores['United States']
+  store_id = ITunesAppReviews::Stores['United States']
 
-  reviews = AppStoreReviews::Reviews.new(store_id, app_id)
+  reviews = ITunesAppReviews::Reviews.new(store_id, app_id)
   reviews.each do |review|
     puts "title: #{review[:title]}"
     puts "name: #{review[:name]}"
@@ -36,11 +36,11 @@ Create reviews object with selected store ID and application ID.
   end
 ```ruby
 
-For logging provide logger to `AppStoreReviews` module and set desired logging level. By default logs go to `/dev/null` with level `ERROR`.
+For logging provide logger to `ITunesAppReviews` module and set desired logging level. By default logs go to `/dev/null` with level `ERROR`.
 
 ```ruby
-AppStoreReviews.log = Logger.new(STDOUT)
-AppStoreReviews.log.level = Logger::DEBUG
+ITunesAppReviews.log = Logger.new(STDOUT)
+ITunesAppReviews.log.level = Logger::DEBUG
 ```ruby
 
 ## Contributing

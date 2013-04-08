@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-module AppStoreReviews
+module ITunesAppReviews
   STORES = {
     'Argentina' =>          143505,
     'Australia' =>          143460,

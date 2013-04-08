@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'rexml/document'
 include REXML
 
-module AppStoreReviews
+module ITunesAppReviews
   class ReviewsPage
     LINK_SELECTOR = "Document > View > ScrollView > VBoxView > View > MatrixView > VBoxView > VBoxView > VBoxView"
 
@@ -23,8 +23,8 @@ module AppStoreReviews
     private
 
     def parse(link)
-      AppStoreReviews.log.debug("Parsing link")
-      AppStoreReviews.log.debug(link)
+      ITunesAppReviews.log.debug("Parsing link")
+      ITunesAppReviews.log.debug(link)
 
       node = link.css('TextView > SetFontStyle')
       info = node[2].content.split(" - ")
@@ -52,8 +52,8 @@ module AppStoreReviews
       }
 
     rescue StandardError => e
-      AppStoreReviews.log.error("Error while parsing")
-      AppStoreReviews.log.error(e)
+      ITunesAppReviews.log.error("Error while parsing")
+      ITunesAppReviews.log.error(e)
       nil
     end
   end

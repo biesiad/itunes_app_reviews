@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'app_store_reviews/version'
+require 'itunes_app_reviews/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "app_store_reviews"
-  gem.version       = AppStoreReviews::VERSION
+  gem.name          = "itunes_app_reviews"
+  gem.version       = ITunesAppReviews::VERSION
   gem.authors       = ["Grzegorz Biesiadecki"]
   gem.email         = ["gbiesiadecki@gmail.com"]
   gem.description   = %q{Scrapes iTunes for app reviews}
