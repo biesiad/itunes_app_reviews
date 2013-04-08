@@ -21,27 +21,27 @@ Or install it yourself as:
 Create reviews object with selected store ID and application ID.
 
 ```ruby
-  app_id = 123456789
-  store_id = ITunesAppReviews::Stores['United States']
+app_id = 123456789
+store_id = ITunesAppReviews::Stores['United States']
 
-  reviews = ITunesAppReviews::Reviews.new(store_id, app_id)
-  reviews.each do |review|
-    puts "title: #{review[:title]}"
-    puts "name: #{review[:name]}"
-    puts "text: #{review[:text]}"
-    puts "rating: #{review[:rating]}"
-    puts "date: #{review[:date]}"
-    puts "version: #{review[:version]}"
-    puts
-  end
-```ruby
+reviews = ITunesAppReviews::Reviews.new(store_id, app_id)
+reviews.each do |review|
+  puts "title: #{review[:title]}"
+  puts "name: #{review[:name]}"
+  puts "text: #{review[:text]}"
+  puts "rating: #{review[:rating]}"
+  puts "date: #{review[:date]}"
+  puts "version: #{review[:version]}"
+  puts
+end
+```
 
 For logging provide logger to `ITunesAppReviews` module and set desired logging level. By default logs go to `/dev/null` with level `ERROR`.
 
 ```ruby
 ITunesAppReviews.log = Logger.new(STDOUT)
 ITunesAppReviews.log.level = Logger::DEBUG
-```ruby
+```
 
 ## Contributing
 
