@@ -6,7 +6,7 @@ Download user reviews from iTunes (iOS App Store)
 
 Add this line to your application's Gemfile:
 
-    gem 'app_store_reviews'
+    gem 'itunes_app_reviews'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install app_store_reviews
+    $ gem install itunes_app_reviews
 
 ## Usage
 
