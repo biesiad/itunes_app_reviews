@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/biesiad/itunes_app_reviews.png)](https://travis-ci.org/biesiad/itunes_app_reviews)
+
 # ITunesAppReviews
 
 Download user reviews from iTunes (iOS App Store)
