@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/biesiad/itunes_app_reviews.png)](https://travis-ci.org/biesiad/itunes_app_reviews)
+[![Code Climate](https://codeclimate.com/github/biesiad/itunes_app_reviews.png)](https://codeclimate.com/github/biesiad/itunes_app_reviews)
 
 # ITunesAppReviews
 
